@@ -24,18 +24,6 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
-# ==================
-# Variable Configs
-# ==================
-vars:
-
-  infinity_future: TO_DATE('9999-12-31', 'YYYY-MM-DD')
-  infinity_past: TO_DATE('1970-01-01', 'YYYY-MM-DD')
-  tomorrow: DATEADD('day',1,CURRENT_DATE())
-  "dbt_date:time_zone": "Europe/Stockholm"
-
-
-
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
@@ -47,4 +35,23 @@ models:
   my_new_project:
     # Applies to all files under models/example/
     example:
+      materialized: view
+    intermediate:
+      materialized: view
+    marts:
+      materialized: view
+    reference:
       materialized: table
+    staging:
+      materialized: view
+
+# ==================
+# Variable Configs
+# ==================
+vars:
+
+  infinity_future: TO_DATE('9999-12-31', 'YYYY-MM-DD')
+  infinity_past: TO_DATE('1970-01-01', 'YYYY-MM-DD')
+  tomorrow: DATEADD('day',1,CURRENT_DATE())
+  "dbt_date:time_zone": "Europe/Stockholm"
+

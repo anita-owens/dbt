@@ -1,0 +1,6 @@
+
+version: 2
+
+models:
+    - name: int_hr_salary
+      description: "Salary dbt model"

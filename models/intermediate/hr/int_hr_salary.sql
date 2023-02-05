@@ -11,5 +11,6 @@ select
     ,ROUND(STDDEV(salary)) as stddev_salary
     ,ROUND(MIN(salary)) as min_salary
     ,ROUND(MAX(salary)) as max_salary
-from my-project-39149-2020.dbt_bigquery.employees
+
+from {{ ref('stg_employees') }}
 group by 1
