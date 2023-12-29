@@ -4,6 +4,15 @@
     )
 }}
 
-select
-    *
-from my-project-39149-2020.dbt_bigquery.employees
+
+    select
+        name,
+        job_titles,
+        department,
+        full_or_part_time,
+        salary_or_hourly,
+        typical_hours,
+        annual_salary,
+        hourly_rate
+
+    from {{ source('people', 'employees') }}

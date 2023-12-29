@@ -1,0 +1,7 @@
+version: 2
+
+sources:
+  - name: people
+    database: aowens-datasets-staging-bq-eu
+    tables:
+      - name: employees
